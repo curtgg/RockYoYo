@@ -12,23 +12,30 @@ public class PlayerController : MonoBehaviour {
 
     public GameObject ropeRoot;
     void Start () {
-        ropeRoot = GameObject.FindGameObjectWithTag("RopeRoot");
         rb2d = GetComponent<Rigidbody2D>();
         tf = GetComponent<Transform>();
     }
 
     // Update is called once per frame
     void FixedUpdate () {
-        //Store the current horizontal input in the float moveHorizontal.
-        float moveHorizontal = Input.GetAxis("Horizontal");
+        Vector2 velocity = new Vector2(0, 0);
+        //L AND R
+        if(Input.GetKey(KeyCode.A)){
+            velocity.x = -speed;
+        }else if (Input.GetKey(KeyCode.D))
+        {
+            velocity.x = speed;
+        }
 
-        //Store the current vertical input in the float moveVertical.
-        float moveVertical = Input.GetAxis("Vertical");
+        if(Input.GetKey(KeyCode.W)){
+            velocity.y = speed;
 
-        //Use the two store floats to create a new Vector2 variable movement.
-        Vector2 movement = new Vector2(moveHorizontal, moveVertical);
+        }
+        else if (Input.GetKey(KeyCode.S)){
+            velocity.y = -speed;
+        }
 
-        //Call the AddForce function of our Rigidbody2D rb2d supplying movement multiplied by speed to move our player.
-        rb2d.AddForce(movement * speed);
+
+        rb2d.MovePosition(rb2d.position + velocity * Time.fixedDeltaTime);
     }
 }
