@@ -10,16 +10,17 @@ public class RopeController : MonoBehaviour {
     public GameObject prefab;
 	// Use this for initialization
 	void Start () {
-        if (GameObject.FindGameObjectsWithTag("Rope").Length == 1)
+        if(GameObject.FindGameObjectsWithTag("Rope").Length == 1)
         {
             this.isRoot = true;
-            //GetComponent<Renderer>().bounds
-            //Instantiate(prefab, );
+         //  this.GetComponent<Transform>().SetParent(GameObject.FindGameObjectWithTag("Player").transform);
+
+           
         }	
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		this.transform
-	}
+       // gameObject.transform.position = GameObject.FindGameObjectWithTag("Player").transform.position;
+    }
 }

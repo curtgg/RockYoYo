@@ -322,41 +322,56 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4496093613297398, guid: 663bf50a9e40fed4d855e8562b929c09, type: 2}
+    - target: {fileID: 4565886022987398, guid: 663bf50a9e40fed4d855e8562b929c09, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -0.549
+      value: -0.704
       objectReference: {fileID: 0}
-    - target: {fileID: 4496093613297398, guid: 663bf50a9e40fed4d855e8562b929c09, type: 2}
+    - target: {fileID: 4565886022987398, guid: 663bf50a9e40fed4d855e8562b929c09, type: 2}
       propertyPath: m_LocalPosition.y
       value: 0.257
       objectReference: {fileID: 0}
-    - target: {fileID: 4496093613297398, guid: 663bf50a9e40fed4d855e8562b929c09, type: 2}
+    - target: {fileID: 4565886022987398, guid: 663bf50a9e40fed4d855e8562b929c09, type: 2}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4496093613297398, guid: 663bf50a9e40fed4d855e8562b929c09, type: 2}
+    - target: {fileID: 4565886022987398, guid: 663bf50a9e40fed4d855e8562b929c09, type: 2}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4496093613297398, guid: 663bf50a9e40fed4d855e8562b929c09, type: 2}
+    - target: {fileID: 4565886022987398, guid: 663bf50a9e40fed4d855e8562b929c09, type: 2}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4496093613297398, guid: 663bf50a9e40fed4d855e8562b929c09, type: 2}
+    - target: {fileID: 4565886022987398, guid: 663bf50a9e40fed4d855e8562b929c09, type: 2}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4496093613297398, guid: 663bf50a9e40fed4d855e8562b929c09, type: 2}
+    - target: {fileID: 4565886022987398, guid: 663bf50a9e40fed4d855e8562b929c09, type: 2}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4496093613297398, guid: 663bf50a9e40fed4d855e8562b929c09, type: 2}
+    - target: {fileID: 4565886022987398, guid: 663bf50a9e40fed4d855e8562b929c09, type: 2}
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
-    - target: {fileID: 1694510979373188, guid: 663bf50a9e40fed4d855e8562b929c09, type: 2}
+    - target: {fileID: 233957038809684110, guid: 663bf50a9e40fed4d855e8562b929c09,
+        type: 2}
+      propertyPath: m_ConnectedRigidBody
+      value: 
+      objectReference: {fileID: 2132641817}
+    - target: {fileID: 1017776789917120, guid: 663bf50a9e40fed4d855e8562b929c09, type: 2}
       propertyPath: m_Name
       value: RopeRoot
+      objectReference: {fileID: 0}
+    - target: {fileID: 233957038809684110, guid: 663bf50a9e40fed4d855e8562b929c09,
+        type: 2}
+      propertyPath: m_EnableCollision
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 233331148753739364, guid: 663bf50a9e40fed4d855e8562b929c09,
+        type: 2}
+      propertyPath: m_EnableCollision
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 663bf50a9e40fed4d855e8562b929c09, type: 2}
@@ -462,6 +477,11 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2, y: 1.25}
   m_EdgeRadius: 0
+--- !u!50 &425565296 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 50269957888960810, guid: 663bf50a9e40fed4d855e8562b929c09,
+    type: 2}
+  m_PrefabInternal: {fileID: 323592348}
 --- !u!1 &432154685
 GameObject:
   m_ObjectHideFlags: 0
@@ -3712,6 +3732,7 @@ GameObject:
   - component: {fileID: 2132641814}
   - component: {fileID: 2132641817}
   - component: {fileID: 2132641818}
+  - component: {fileID: 2132641819}
   m_Layer: 0
   m_Name: BLOB
   m_TagString: Player
@@ -3804,9 +3825,9 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_Mass: 20
+  m_LinearDrag: 2
+  m_AngularDrag: 0.25
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
@@ -3824,5 +3845,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff3a8d46b046eed419459555bfc170e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  speed: 100
   ropeRoot: {fileID: 0}
+--- !u!233 &2132641819
+HingeJoint2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2132641813}
+  m_Enabled: 1
+  serializedVersion: 4
+  m_EnableCollision: 0
+  m_ConnectedRigidBody: {fileID: 425565296}
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_AutoConfigureConnectedAnchor: 1
+  m_Anchor: {x: 0.46003368, y: -0.045343336}
+  m_ConnectedAnchor: {x: 1.5372113, y: -2.033692}
+  m_UseMotor: 0
+  m_Motor:
+    m_MotorSpeed: 0
+    m_MaximumMotorForce: 10000
+  m_UseLimits: 0
+  m_AngleLimits:
+    m_LowerAngle: 0
+    m_UpperAngle: 359

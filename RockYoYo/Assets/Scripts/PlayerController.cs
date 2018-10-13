@@ -8,11 +8,13 @@ public class PlayerController : MonoBehaviour {
 
     private Rigidbody2D rb2d;       //Store a reference to the Rigidbody2D component required to use 2D Physics.
                                     // Use this for initialization
-    public GameObject ropeRoot = GameObject.FindGameObjectsWithTag("RopeRoot")[0];
+    private Transform tf;
 
+    public GameObject ropeRoot;
     void Start () {
+        ropeRoot = GameObject.FindGameObjectWithTag("RopeRoot");
         rb2d = GetComponent<Rigidbody2D>();
-        
+        tf = GetComponent<Transform>();
     }
 
     // Update is called once per frame
